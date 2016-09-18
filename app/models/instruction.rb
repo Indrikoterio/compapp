@@ -76,10 +76,10 @@ class Instruction < ApplicationRecord
 
   validates_with InstructionValidator
 
-  before_validation :up_case
+  before_validation :clean_up
 
-  def up_case
-    opcode.upcase!
+  def clean_up
+    opcode.strip!.upcase!
   end
 
 end

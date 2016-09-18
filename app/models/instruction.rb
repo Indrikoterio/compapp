@@ -13,13 +13,11 @@ class InstructionValidator < ActiveModel::Validator
 
   def validate(record)
 
-    address    = record[:address]
-    address_b4 = record.address_before_type_cast
-
-    opcode     = record[:opcode]
+    address   = record[:address]
+    opcode    = record[:opcode]
 
     operand    = record[:operand]
-    operand_b4 = record.operand_before_type_cast
+    str_operand = record.operand_before_type_cast.strip
 
     # Validate opcode.
     if (opcode.nil? || opcode.empty?)
@@ -34,7 +32,7 @@ class InstructionValidator < ActiveModel::Validator
     if (Computer::REQUIRE_OPERAND.include? opcode)
       if (operand.nil?)
         record.errors[:base] << "This operation requires an integer operand."
-      elsif !(operand_b4 =~ /\A[-+]?\d+\Z/)
+      elsif !(str_operand =~ /\A[-+]?\d+\Z/)
         record.errors[:base] << "This operation requires an integer operand."
       elsif (operand > Computer::MAX_INTEGER)
         record.errors[:base] << "Operand must be less than #{Computer::MAX_INTEGER + 1}."
@@ -47,9 +45,10 @@ class InstructionValidator < ActiveModel::Validator
 
    # Validate address if this is a new record.
    if (record[:created_at].nil?)  # Is this new?
-     if (address_b4.empty?)
+     str_address = record.address_before_type_cast.strip
+     if (str_address.empty?)
         record.errors[:base] << "Please enter a valid address."
-     elsif !(address_b4 =~ /\A[+]?\d+\Z/)
+     elsif !(str_address =~ /\A[+]?\d+\Z/)
        record.errors[:base] << "The address must be a positive integer."
      elsif (address >= InstructionsController::COMPUTER_MEMORY_SIZE)
        record.errors[:base] <<
@@ -79,7 +78,8 @@ class Instruction < ApplicationRecord
   before_validation :clean_up
 
   def clean_up
-    opcode.strip!.upcase!
+    opcode.strip!
+    opcode.upcase!
   end
 
 end

@@ -1,0 +1,16 @@
+<div class="modal-dialog">
+  <div class="modal-content" style="width: 360px;">
+
+    <div class="modal-body">
+      <div class="form-group">
+        Program completed. Results:<br><br>
+        <%= raw @results %>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <%= link_to "OK", "#", class: "btn btn-primary", data: {dismiss: "modal"} %>
+    </div>
+
+  </div>
+</div>

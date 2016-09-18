@@ -1,0 +1,59 @@
+<div class="container">
+
+  <h2>Cleve's Computer</h2><br>
+
+  <table>
+    <tr><td>
+
+      <!-- The 'Add' section, for adding instructions to the program. -->
+      <%= form_for @instruction, remote: true  do |f| %>
+        <table class="table-bordered table-striped">
+          <thead>
+            <tr><th>Address</th><th>Opcode</th><th>Operand</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= f.text_field :address, value: @next_address %></td>
+              <td><%= f.text_field :opcode %></td>
+              <td><%= f.text_field :operand %></td>
+              <td><%= f.submit "Add", class: "btn btn-default" %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+
+      <br>
+
+      <!-- The Execute/Results block. -->
+      <%= form_tag 'instructions/execute', remote: true do %>
+        <%= submit_tag( "Execute", class: "btn btn-default"  ) %>
+      <% end -%>
+
+      <br>
+
+      <div class="new-instruction"></div>
+  
+      <!-- This table displays the program listing. -->
+
+      <table class="table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Address</th>
+            <th>Instruction</th>
+          </tr>
+        </thead>
+        <tbody class="instruction-index">
+          <%= render "index" %>
+        </tbody>
+      </table>
+
+    </td></tr>
+
+  </table>
+
+  <br><br><br><br><br>
+</div>
+
+<div id="instruction-modal" class="modal fade"></div>
+
+

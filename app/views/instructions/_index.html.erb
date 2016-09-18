@@ -1,0 +1,11 @@
+<% @instructions.each do |instr| %>
+  <tr>
+    <td style = "text-align: right;"><%= instr.address %></td>
+    <td><%= instr.opcode %>&nbsp;&nbsp;<%= instr.operand %></td>
+    <td>
+      <%= link_to "Edit", edit_instruction_path(instr), remote: true, class: "btn btn-default" %>&nbsp;
+      <%= link_to "Delete", instruction_path(instr), method: :delete, remote: true, class: "btn btn-default" %>
+    </td>
+  </tr>
+<% end %>
+

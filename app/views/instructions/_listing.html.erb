@@ -1,0 +1,20 @@
+<table border=1>
+  <tr>
+    <th>Address</th>
+    <th>Opcode</th>
+    <th>Operand</th>
+  </tr>
+ 
+  <% @instructions.each do |instr| %>
+    <tr>
+      <td><%= instr.address %></td>
+      <td><%= instr.opcode %></td>
+      <td><%= instr.operand %></td>
+      <td><%= link_to 'Edit', edit_instruction_path(instr) %></td>
+      <td><%= link_to 'Destroy', instruction_path(instr),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
+</table>

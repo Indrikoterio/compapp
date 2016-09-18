@@ -1,0 +1,12 @@
+// Place all the styles related to the Instructions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+th, td { padding-left: 8px; padding-right: 8px; } 
+td:nth-child(1) { width: 17%; }
+td:nth-child(2) { width: 40%; }
+td:nth-child(3) { width: 70px; }
+
+
+table { width: 480px; padding: 15px; }
+input { width: 92px; }

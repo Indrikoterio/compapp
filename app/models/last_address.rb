@@ -1,0 +1,2 @@
+class LastAddress < ApplicationRecord
+end

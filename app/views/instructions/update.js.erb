@@ -1,0 +1,4 @@
+<% if @instruction.errors.any? %>
+  $("#instruction-modal").html("<%= escape_javascript(render 'errors') %>")
+  $("#instruction-modal").modal("show")
+<% end %>

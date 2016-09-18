@@ -6,23 +6,25 @@ This app has a simple interface for editing and executing instructions of a simu
 
 ## Instruction set:
 
-MULT: Pop the 2 arguments from the stack, multiply them and push the result back to the stack.
-CALL addr: Set the program counter (PC) to addr.
-RET: Pop address from stack and set PC to address.
-STOP: Exit the program.
-PRINT: Pop value from stack and print it.
-PUSH arg: Push argument to the stack
+<ul>
+<li>MULT: Pop the 2 arguments from the stack, multiply them and push the result back to the stack.</li>
+<li>CALL addr: Set the program counter (PC) to addr.</li>
+<li>RET: Pop address from stack and set PC to address.</li>
+<li>STOP: Exit the program.</li>
+<li>PRINT: Pop value from stack and print it.</li>
+<li>PUSH arg: Push argument to the stack</li>
+</ul>
 
 ## Requirements
 
-ruby 2.3.0p0
+ruby 2.3.0p0<br>
 Rails 5.0.0.1
 
 ## Setup
 
 Open a terminal window and check software versions:
 
-ruby -v
+ruby -v<br>
 rails --version
 
 Move to home directory and clone the repository:

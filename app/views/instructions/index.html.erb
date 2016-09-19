@@ -49,9 +49,44 @@
 
     </td></tr>
 
+    <tr><td>
+
+      <h3>Instructions</h3>
+
+      <p>
+      This program simulates a simple computer. To program the computer, enter an address,
+      opcode, and operand, if required, then click on Add, or type &lt;Enter&gt;. 
+      Clicking on Execute will return errors or the result.
+      </p>
+
+      <p>
+      Note: The computer only handles integers (4-byte).
+      </p>
+
+      <h4> Instruction set:</h4>
+
+      <ul>
+        <li>MULT: Pop 2 arguments from stack, multiply, and push result back to stack.</li>
+        <li>CALL addr: Set the program counter to addr.</li>
+        <li>RET: Pop address from stack and set program counter to address.</li>
+        <li>STOP: Exit the program.</li>
+        <li>PRINT: Pop value from stack and print it.</li>
+        <li>PUSH arg: Push argument to the stack</li>
+      </ul>
+
+      <br>
+      <i>Created by Cleve Lendon, 2016</i>
+
+
+    </td></tr>
+
   </table>
 
-  <br><br><br><br><br>
+  <br><br>
+
+
+
+  <br><br>
 </div>
 
 <div id="instruction-modal" class="modal fade"></div>

@@ -53,7 +53,7 @@ Set browser URL to http://localhost:3000/
 
 Move to compapp/test and run:
 
-ruby tc_computer
+ruby tc_computer.rb
 
 ## Cleve Lendon, 2016
 
